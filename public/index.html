@@ -26,7 +26,6 @@
   </head>
   <body>
     <script>
-      import { publicPath } from 'vue.config';
       const pageAccessedByReload = (
         (window.performance.navigation && window.performance.navigation.type === 1) ||
           window.performance
@@ -36,7 +35,7 @@
       );
 
       if(pageAccessedByReload){
-        window.location = publicPath
+        window.location = "/"
       }
     </script>
     <div id="app"></div>
