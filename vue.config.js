@@ -1,6 +1,6 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
-  publicPath: process.env.NODE_ENV === 'production' ? '/GitHub-Repo-Name/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/to-do-list-manager/' : '/',
   transpileDependencies: [
     'vuetify'
   ]
