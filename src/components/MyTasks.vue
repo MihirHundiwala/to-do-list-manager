@@ -31,6 +31,7 @@
                 <MyTask v-for="(task,key) in listdata.tasks" 
                         v-bind:key="key" 
                         :task="task"
+                        :listid=listdata.id
                         v-model="task.status" />
             </template>
         </v-list>
@@ -53,9 +54,9 @@
         computed: {
             listdata () {
                 return {
-                    id: parseInt(this.$route.params.id),
-                    name: this.$route.params.name,
-                    tasks: this.$route.params.tasks
+                    id: parseInt(this.$route.params.list.id),
+                    name: this.$route.params.list.name,
+                    tasks: this.$route.params.list.tasks
                 };
             },
             openNewTaskFormValue: {
