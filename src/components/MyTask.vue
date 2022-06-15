@@ -17,7 +17,7 @@
 
         <v-list-item-action>
             <v-list-item-title v-if="hover" >
-                <v-icon color="black" @click="deleteTaskItem(listid, task.id)">cancel</v-icon>
+                <v-icon color="#121212" @click="deleteTaskItem(listid, task.id)">cancel</v-icon>
             </v-list-item-title>
         </v-list-item-action>
 

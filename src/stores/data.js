@@ -40,6 +40,12 @@ export default {
         },
         UPDATE_LIST_COUNT: (state) => {
             state.list_count += 1;
+        },
+        TOGGLE_ALL_TASKS_STATUS: (state, data) => {
+            let tasks = state.lists.find(list => list.id == data.listId).tasks
+            tasks.forEach(task => {
+                task.status = data.bool
+            });
         }
     },
     actions: {

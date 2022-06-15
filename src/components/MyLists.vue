@@ -1,7 +1,7 @@
 <template>
     <v-navigation-drawer style="width:100%; height:100%; overflow:hidden;">
-        <v-toolbar color="green" dark>
-            <v-toolbar-title>Your Lists</v-toolbar-title>
+        <v-toolbar color="rgba(105,21,129,1)" dark>
+            <v-toolbar-title><strong>Your Lists</strong></v-toolbar-title>
             <v-spacer></v-spacer>
             <v-icon>list</v-icon>
         </v-toolbar>
@@ -14,7 +14,7 @@
                 
                 <v-list-item-action>
                     <v-list-item-title>
-                        <v-icon color="black">add</v-icon>
+                        <v-icon color="#121212">add</v-icon>
                     </v-list-item-title>
                 </v-list-item-action>
             </v-list-item>

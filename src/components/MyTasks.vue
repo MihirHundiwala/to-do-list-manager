@@ -1,9 +1,12 @@
 <template>
     <v-card style="width:100%; height:100%; overflow:hidden;">
-        <v-toolbar color="green" dark>
-            <v-toolbar-title>Tasks in {{listdata.name}}</v-toolbar-title>
+        <v-toolbar color="#24adc8" light>
+            <v-toolbar-title><strong>Tasks in {{listdata.name}}</strong></v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-icon>task</v-icon>
+            <v-icon style="margin-right:10px; color:black;" @click="toggleSelectAll(listdata.id)">
+                {{iconType}}
+            </v-icon>
+            <v-icon color="black">task</v-icon>
         </v-toolbar>
 
         <v-list v-if="!isOpen">
@@ -45,11 +48,22 @@
     export default {
         name: 'MyTasks',
         components: { MyTask, NewTask },
-        data: () => ({}),
+        data: () => ({
+            iconType: "select_all",
+        }),
         methods: {
             openNewTaskForm() {
                 this.$store.commit("SET_NEW_TASK_FORM", true);
             },
+            toggleSelectAll(listId) {
+                if(this.iconType==="select_all"){
+                    this.iconType="deselect"
+                    this.$store.commit("TOGGLE_ALL_TASKS_STATUS", {listId, bool:true});
+                }else{
+                    this.iconType="select_all"
+                    this.$store.commit("TOGGLE_ALL_TASKS_STATUS", {listId, bool:false});
+                }
+            }
         },
         computed: {
             listdata () {

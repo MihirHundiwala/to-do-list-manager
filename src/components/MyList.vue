@@ -15,7 +15,7 @@
             </v-badge>
 
             <v-list-item-title v-if="hover" @click="deleteListItem(list.id)">
-                <v-icon color="black">cancel</v-icon>
+                <v-icon color="#121212">cancel</v-icon>
             </v-list-item-title>
         </v-list-item-action>
     </v-list-item>
