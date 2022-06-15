@@ -1,76 +1,85 @@
 <template>
-    <v-navigation-drawer style="width: 100%">
+    <v-navigation-drawer style="width:100%; height:100%; overflow:hidden;">
         <v-toolbar color="green" dark>
             <v-toolbar-title>Your Lists</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-icon>list</v-icon>
         </v-toolbar>
 
-        <v-list>
-            <v-list-item>
+        <v-list v-if="!isOpen">
+            <v-list-item @click.prevent="openNewListForm()">
                 <v-list-item-content>
-                    <v-list-item-title>New List</v-list-item-title>
+                    <v-list-item-title><strong>Create a New List</strong></v-list-item-title>
                 </v-list-item-content>
                 
                 <v-list-item-action>
                     <v-list-item-title>
-                        <v-icon>add</v-icon>
+                        <v-icon color="black">add</v-icon>
                     </v-list-item-title>
                 </v-list-item-action>
             </v-list-item>
         </v-list>
 
+        <v-list-item v-if="openNewListFormValue">
+            <NewList/>
+        </v-list-item>
+
         <v-divider></v-divider>
 
-        <v-list dense>
-            <v-list-item v-for="(list,key) in lists" v-bind:key="key">
+        <v-list style="padding-top:0px; height: calc(100% - 129px); overflow: auto;">
+            <v-list-item 
+                v-for="(list,key) in LISTS" 
+                v-bind:key="key"
+                :to="{name: 'MyTasks', params: {id: list.id, name:list.name, tasks:list.tasks}}"
+                @click="makeTasksVisible()"
+            >
                 <v-list-item-content>
                     <v-list-item-title>{{list.name}}</v-list-item-title>
                 </v-list-item-content>
                 
                 <v-list-item-action>
-                    <v-badge color="#d7dbe0">
-                        <span slot="badge" style="color:black;">{{list.tasks}}</span>
+                    <v-badge color="#d7dbe0" style="margin-top:10px;">
+                        <span slot="badge" style="color:black;">{{TASKS_COUNT(list.id)}}</span>
                     </v-badge>
                 </v-list-item-action>
             </v-list-item>
         </v-list>
-
     </v-navigation-drawer>
 </template>
 
 
 <script>
+    import { mapGetters } from 'vuex';
+    import NewList from "./NewList"
+
     export default {
         name: 'MyLists',
-        data: () => ({
-            lists: [
-                {
-                    id:1,
-                    name: "List Number 1",
-                    tasks: 12,
+        components: {NewList},
+        data: () => ({}),
+        methods: {
+            openNewListForm() {
+                this.$store.commit("SET_NEW_LIST_FORM", true);
+            },
+            makeTasksVisible() {
+                this.$store.commit("SET_TASKS_VISIBILITY", true);
+            },
+            TASKS_COUNT(index) {
+                return this.$store.getters.TASKS_COUNT(index);
+            }
+        },
+        computed: {
+            ...mapGetters(['LISTS']),
+            openNewListFormValue: {
+                get () {
+                    return this.$store.getters.NEW_LIST_FORM;
                 },
-                {
-                    id:2,
-                    name: "List Number 2",
-                    tasks: 9,
-                },
-                {
-                    id:3,
-                    name: "List Number 3",
-                    tasks: 3,
-                },
-                {
-                    id:4,
-                    name: "List Number 4",
-                    tasks: 10,
-                }
-            ]
-        })
+            },
+            isOpen () {
+                return this.$store.getters.NEW_LIST_FORM;
+            }
+        },
+        // mounted () {
+        //     this.$store.dispatch("GET_LISTS");
+        // }
     }
 </script>
-
-
-<style lang="">
-    
-</style>

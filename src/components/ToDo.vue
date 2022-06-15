@@ -1,12 +1,12 @@
 <template>
-    <v-container fluid fill-height pa-0>
-        <v-layout>
-            <v-flex lg3 elevation-5 mt-3 ml-5 mr-2 mb-5>
+    <v-container fluid fill-height>
+        <v-layout style="max-height:90vh; height:100%" justify-center>
+            <v-flex lg3 elevation-5 ml-5 mr-2>
                 <MyLists/>
             </v-flex>
 
-            <v-flex lg9 elevation-5 mt-3 mr-5 ml-3 mb-5>
-                <MyTasks/>
+            <v-flex lg9 elevation-5 mr-5 ml-3 v-if="tasksVisibility" animation>
+                <router-view name="MyTasks" :key="$route.fullPath"></router-view>
             </v-flex>
         </v-layout>
     </v-container>
@@ -15,12 +15,17 @@
 
 <script>
     import MyLists from "./MyLists"
-    import MyTasks from "./MyTasks"
     export default {
         name: 'ToDo',
         components: {
             MyLists,
-            MyTasks,
+        },
+        computed: {
+            tasksVisibility: {
+                get () {
+                    return this.$store.getters.TASKS_VISIBILITY;
+                },
+            },
         }
     }
 </script>

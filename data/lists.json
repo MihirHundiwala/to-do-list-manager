@@ -1,0 +1,181 @@
+[
+    {
+        "id":1,
+        "name": "OOPS",
+        "tasks": [
+            {
+                "id": 1,
+                "title": "Study Constructors",
+                "status": true
+            },
+            {
+                "id": 2,
+                "title": "Study Polymorphism",
+                "status": true
+            },
+            {
+                "id": 3,
+                "title": "Study Inheritance",
+                "status": true
+            },
+            {
+                "id": 4,
+                "title": "Study Abstraction",
+                "status": true
+            },
+            {
+                "id": 5,
+                "title": "Study Encapsulation",
+                "status": true
+            },
+            {
+                "id": 6,
+                "title": "Study Classes",
+                "status": true
+            },
+            {
+                "id": 7,
+                "title": "Study Objects",
+                "status": true
+            },
+            {
+                "id": 8,
+                "title": "Study Serialization",
+                "status": false
+            },
+            {
+                "id": 9,
+                "title": "Do Revision",
+                "status": false
+            },
+            {
+                "id": 10,
+                "title": "Practice questions",
+                "status": false
+            }
+        ]
+    },
+    {
+        "id":2,
+        "name": "Web Development",
+        "tasks": [
+            {
+                "id": 1,
+                "title": "Learn HTML",
+                "status": true
+            },
+            {
+                "id": 2,
+                "title": "Learn CSS",
+                "status": true
+            },
+            {
+                "id": 3,
+                "title": "Learn BOOTSTRAP",
+                "status": true
+            },
+            {
+                "id": 4,
+                "title": "Learn JAVASCRIPT",
+                "status": true
+            },
+            {
+                "id": 5,
+                "title": "Learn Python",
+                "status": true
+            },
+            {
+                "id": 6,
+                "title": "Learn Flask",
+                "status": true
+            },
+            {
+                "id": 7,
+                "title": "Learn Django",
+                "status": true
+            },
+            {
+                "id": 8,
+                "title": "Learn Node",
+                "status": true
+            },
+            {
+                "id": 7,
+                "title": "Learn React",
+                "status": false
+            },
+            {
+                "id": 8,
+                "title": "Learn Vue",
+                "status": false
+            }
+        ]
+    },
+    {
+        "id":3,
+        "name": "Exercise",
+        "tasks": [
+            {
+                "id": 1,
+                "title": "Jumping",
+                "status": true
+            },
+            {
+                "id": 2,
+                "title": "Stretching",
+                "status": true
+            },
+            {
+                "id": 3,
+                "title": "Meditation",
+                "status": false
+            },
+            {
+                "id": 4,
+                "title": "Pushups",
+                "status": true
+            },
+            {
+                "id": 5,
+                "title": "Plank Sets",
+                "status": false
+            },
+            {
+                "id": 6,
+                "title": "Squats",
+                "status": false
+            }
+        ]
+    },
+    {
+        "id":4,
+        "name": "Do Project in Vue",
+        "tasks": [
+            {
+                "id": 1,
+                "title": "Learn Vue Basics",
+                "status": true
+            },
+            {
+                "id": 2,
+                "title": "Setup Project",
+                "status": true
+            },
+            {
+                "id": 3,
+                "title": "Create FrontEnd",
+                "status": true
+            },
+            {
+                "id": 4,
+                "title": "Create BackEnd",
+                "status": false
+            },
+            {
+                "id": 5,
+                "title": "Make data persitant",
+                "status": false
+            }
+        ]
+    }
+]
